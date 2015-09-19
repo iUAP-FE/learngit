@@ -12,6 +12,7 @@ git config --global user.name "Your Name" 配置用户名
 - vim readme.txt 新建一个文本文件，比如往里面添加简单的一行字符串
 - git add readme.txt 添加一个文件，比如readme.txt，如果目录里面的所有文件都要添加，可以git add *
 - git commit-m "添加一个readme.txt文件" 将文件提交到仓库，并加上说明（这时候是版本1）
+
 # 2.提交修改
 
 假如此时第一次修改了readme.txt文件
@@ -21,6 +22,7 @@ git config --global user.name "Your Name" 配置用户名
 - git status 可以再用git status查看仓库的当前状态，告诉我们，将要被提交的修改包括readme.txt
 - git commit-m "第一次修改" 然后再git commit，并添加修改的描述（这时候是版本2）
 - git status 可以再执行git status看仓库状态，因为所有的都提交了，Git告诉我们当前没有需要提交的修改，而且，工作目录是干净（working directory clean）的。
+
 # 3.版本回退
 
 你可以像上面所说的那样不停的提交新的文件、提交对文件的修改
@@ -38,6 +40,7 @@ git log 此时看到版本3的信息没有了
 - vim readme.txt 看到的是第三版本的readme.txt文件的内容，所以又回来了
 Git的版本回退速度非常快，因为Git在内部有个指向当前版本的HEAD指针，当你回退版本的时候，Git仅仅是把HEAD从指向你要回退的那个版本
 - git reflog 记录你的每一次命令，最先显示的是这个命令执行之后的版本的版本号的前七位，这样就算你清屏了或者重启了，也能找到某个版本的版本号，就可以轻松回退到那个版本
+
 # 4.工作区、版本库和暂存区
 
 工作区：就是你在电脑里能看到的目录，比如我的learngit文件夹就是一个工作区。
@@ -107,6 +110,7 @@ git checkout -- readme.txt 也可以通过命令撤销修改，这条命令的�
 - git status 这个时候，Git知道你删除了文件，因此，工作区和版本库就不一致了，git status命令会立刻告诉你哪些文件被删除了
 现在你有两个选择，一是确实从版本库中删除该文件，那就git rm test.txt，然后git commit 文件就从版本库中删除了
 另一种情况是删除错了，因为版本库里还有，所以可以轻松地将误删除的文件恢复到最新版本git checkout -- test.txt git checkout其实使用版本库中的版本替换工作区的版本，无论工作区是修改还是删除，都可以'一键还原'
+
 # 8.添加远程库
 
 要想学习这部分的知识，需要先在github上添加你的ssh keys。
@@ -175,6 +179,7 @@ git checkout -- readme.txt 也可以通过命令撤销修改，这条命令的�
 - git merge命令用于合并指定分支到当前分支。合并后，再查看readme.txt的内容，就可以看到，和dev分支的最新提交是完全一样的。注意到上面的Fast-forward信息，Git告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，所以合并速度非常快。当然，也不是每次合并都能Fast-forward，我们后面会将其他方式的合并。
 - git branch -d dev 合并完成之后，可以放心的删除dev分支了
 - git branch 删除后，查看branch，只剩下master了
+
 # 12.解决冲突
 
 人生不如意之事十之八九，合并分支往往也不是一帆风顺的。
